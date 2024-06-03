@@ -35,7 +35,7 @@ class UtesController < ApplicationController
 
   def destroy
     @ute.destroy
-    redirect_to utes_path
+    redirect_to root_path
   end
 
   private

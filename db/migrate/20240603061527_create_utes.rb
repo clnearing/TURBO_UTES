@@ -6,7 +6,7 @@ class CreateUtes < ActiveRecord::Migration[7.1]
       t.string :location
       t.text :details
       t.string :image_url
-      t.boolean :avalability
+      t.boolean :availability
       t.integer :price
       t.references :user, null: false, foreign_key: true
 

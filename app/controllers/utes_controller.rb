@@ -13,7 +13,7 @@ class UtesController < ApplicationController
     @ute = Ute.new(ute_params)
     @ute.user_id = 1 # change this to user_id and not 1
     if @ute.save
-      redirect_to "/" # change this to root path
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end

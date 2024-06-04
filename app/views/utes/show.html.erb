@@ -1,0 +1,5 @@
+<h2><b><%= @ute.year %> <%= @ute.model  %></b></h2>
+<h3>$<%= @ute.price %>/day <%= @ute.location %></h3>
+<p style="width:400px"><%= @ute.details %></p>
+<img src="<%= @ute.image_url %>" style="width:400px">
+<%= link_to "Book Now!", new_ute_booking_path(@ute) %>

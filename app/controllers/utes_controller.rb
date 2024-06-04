@@ -11,9 +11,9 @@ class UtesController < ApplicationController
 
   def create
     @ute = Ute.new(ute_params)
-    @ute.user_id = current_user.id
+    @ute.user_id = 1 # change this to user_id and not 1
     if @ute.save
-      redirect_to ute_path(@ute)
+      redirect_to "/" # change this to root path
     else
       render :new, status: :unprocessable_entity
     end
@@ -41,7 +41,7 @@ class UtesController < ApplicationController
   private
 
   def ute_params
-    params.require(:ute).permit(:model, :year, :location, :details, :image_url, :price)
+    params.require(:ute).permit(:model, :year, :location, :details, :image_url, :avalability, :price)
   end
 
   def set_ute

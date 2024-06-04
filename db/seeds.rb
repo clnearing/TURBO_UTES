@@ -7,10 +7,6 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-<<<<<<< HEAD
-
-Ute.create(model:"commodore", year:"2004", location:"melbourne,vic", details:"very good ute", image_url:"", price:10000)
-=======
 puts "seeding..."
 
 User.create(
@@ -20,5 +16,7 @@ User.create(
   password: "bob123"
 )
 
-puts "user created"
->>>>>>> 347cae44e42cd1b288689ee2a7727362a9831d90
+Ute.create(user_id: 1, model:"commodore", year:"2004", location:"melbourne,vic", details:"very good ute", image_url:"", price:10000)
+
+
+puts "user and ute created"

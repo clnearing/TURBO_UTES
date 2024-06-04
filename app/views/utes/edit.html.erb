@@ -1,1 +1,13 @@
-<%=render "../shared/_form"%>
+<div class="container p-1">
+  <h2>Edit your ute </h2>
+  <%= simple_form_for(@ute) do |f| %>
+    <%= f.input :model %>
+    <%= f.input :year %>
+    <%= f.input :location %>
+    <%= f.input :details %>
+    <%= f.input :image_url %>
+    <%= f.input :avalability %>
+    <%= f.input :price %>
+    <%= f.button :submit, class:"btn btn-primary"%>
+  <% end %>
+</div>

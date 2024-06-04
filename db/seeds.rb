@@ -7,3 +7,5 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Ute.create(model:"commodore", year:"2004", location:"melbourne,vic", details:"very good ute", image_url:"", price:10000)

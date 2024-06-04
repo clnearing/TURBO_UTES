@@ -16,4 +16,7 @@ User.create(
   password: "bob123"
 )
 
-puts "user created"
+Ute.create(user_id: 1, model:"commodore", year:"2004", location:"melbourne,vic", details:"very good ute", image_url:"", price:10000)
+
+
+puts "user and ute created"

@@ -41,7 +41,7 @@ class UtesController < ApplicationController
   private
 
   def ute_params
-    params.require(:ute).permit(:model, :year, :location, :details, :image_url, :avalability, :price)
+    params.require(:ute).permit(:model, :year, :location, :details, :image_url, :availability, :price)
   end
 
   def set_ute

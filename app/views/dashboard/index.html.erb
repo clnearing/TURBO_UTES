@@ -1,12 +1,13 @@
 <h1>Your Dashboard</h1>
   <div class="btn btn-link" style="border: solid 1px"><%= link_to "Home", utes_path %></div>
+  <div class="btn btn-link" style="border: solid 1px"><%= link_to "Add a ute", new_ute_path %></div>
 
-<div class="container">
-  <div class="container" style="padding-top: 50px">
+<div class="container" style="display: flex" >
+  <div style="margin: 80px">
     <h2>My Fabulous Utes</h2>
-    <div>
+    <p>** See all the utes you own **</p>
+    <div style="padding:20px">
       <% @my_utes.each do |ute| %>
-        <%# <% if ute.availability? %>
           <div style="width:200px">
             <img src="<%= ute.image_url %>" style="width:100%">
             <div>
@@ -14,29 +15,43 @@
               <h4><b><%= ute.year %> <%= ute.model  %></b></h4>
             </div>
           </div>
-        <%# <% end %>
+          <%# Edit button for our utes (to make any changes to the ute) %>
+            <%= link_to "Edit", edit_ute_path(ute) %>
+          <%# Delete button for our utes (destroy the ute) %>
+            <%= link_to "Delete", ute_path(ute), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       <% end %>
     </div>
   </div>
 
-  <div class="container" style="padding-top: 50px">
+  <div style="margin: 80px">
     <h2>My Utes Bookings</h2>
-    <p>** My utes bookings will appear here **</p>
-     <%# <% @my_utes_bookings.each do |booking| %>
-          <div style="width:200px">
-            <img src="<%= @my_utes_bookings.ute.image_url %>" style="width:100%">
-            <div>
-              <h4><b><%= @my_utes_bookings.ute.year %> <%= @my_utes_bookings.ute.model %></b></h4>
-              <h3>Total : $<%= @my_utes_bookings.total_price %></h3>
-              <h4><b><%= @my_utes_bookings.status %></b></h4>
-            </div>
-          </div>
-      <%# <% end %>
+    <p>** Bookings made on your utes**</p>
+    <div style="padding:20px">
+    <% @my_utes_bookings.each do |booking|%>
+      <div style="width:200px">
+        <img src="<%= booking.ute.image_url %>" style="width:100%">
+      </div>
+        <h4><b><%=booking.ute.year %> <%= booking.ute.model %></b></h4>
+        <h3>Total : $ <%= booking.total_price %></h3>
+      <%# Edit button for our bookings (accept/decline/complete) %>
+      <%# <%= link_to "Edit", to: edit_booking_path %>
+      <%=link_to "Edit", edit_ute_booking_path(booking)%>
+        <% end %>
+        </div>
   </div>
 
-  <div class="container" style="padding-top: 50px; padding-bottom: 50px">
+  <div style="margin: 80px">
     <h2>Bookings Made By Me </h2>
-    <p>** The bookings I've made will appear here **</p>
-    <%= @bookings_made_by_me.ute.image_url %>
+    <p>** See the bookings you've made on other utes **</p>
+      <div style="padding:20px">
+          <% @bookings_made_by_me.each do |booking| %>
+          <div style="width:200px">
+              <img src="<%= booking.ute.image_url %>" style="width:100%">
+          </div>
+            <h4><b><%=booking.ute.year %> <%= booking.ute.model %></b></h4>
+            <h3>Total : $ TBD <%= booking.total_price %></h3>
+            <h4><b><%=booking.status %></b></h4>
+          <% end %>
+      </div>
   </div>
 </div>

@@ -1,9 +1,8 @@
+<div class="btn btn-link" style="border: solid 1px"><%=link_to "Back", utes_path%></div>
 <h2><b><%= @ute.year %> <%= @ute.model  %></b></h2>
 <h3>$<%= @ute.price %>/day <%= @ute.location %></h3>
 <p style="width:400px"><%= @ute.details %></p>
 <img src="<%= @ute.image_url %>" style="width:400px">
-<%= link_to "Book Now!", new_ute_booking_path(@ute) %>
-<br>
 <h2>Create A Booking</h2>
 <div data-controller="booking">
   <%= simple_form_for @booking, url: ute_bookings_path(@ute) do |f| %>

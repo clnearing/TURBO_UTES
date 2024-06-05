@@ -14,7 +14,7 @@ class UtesController < ApplicationController
     @ute = Ute.new(ute_params)
     @ute.user_id = current_user.id
     if @ute.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,7 +31,7 @@ class UtesController < ApplicationController
 
   def update
     if @ute.update(ute_params)
-      redirect_to ute_path(@ute)
+      redirect_to dashboard_path
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,7 +39,7 @@ class UtesController < ApplicationController
 
   def destroy
     @ute.destroy
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   private

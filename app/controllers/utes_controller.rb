@@ -12,7 +12,7 @@ class UtesController < ApplicationController
 
   def create
     @ute = Ute.new(ute_params)
-    @ute.user_id = 1 # change this to user_id and not 1
+    @ute.user_id = current_user.id
     if @ute.save
       redirect_to root_path
     else

@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root to: "utes#index"
 
   resources :utes do
-    resources :bookings, only: [:new, :create, :edit, :update]
+    resources :bookings, only: :create
   end
+
+  resources :bookings, only: [:edit, :update]
 
   # resources :dashboard, only: [:my-utes, :my_utes_bookings, :bookings_made_by_me]
 

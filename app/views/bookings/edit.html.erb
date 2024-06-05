@@ -1,0 +1,24 @@
+<h2>**Update This Booking**</h2>
+<div class="d-flex">
+  <div class="p-3">
+    <h3><b><%= @ute.year %> <%= @ute.model  %></b></h3>
+    <h4>$<%= @ute.price %>/day <%= @ute.location %></h4>
+    <p style="width:300px"><%= @ute.details %></p>
+    <img src="<%= @ute.image_url %>" style="width:300px">
+  </div>
+  <div class="p-3">
+    <h3>Booking Request From:</h3>
+    <p><%= @user.first_name %> <%= @user.last_name %></p>
+    <h4>Start Date:</h4>
+    <p><%= @booking.start_date %></p>
+    <h4>End Date:</h4>
+    <p><%= @booking.end_date %></p>
+    <h4>Total Price:</h4>
+    <p>$<%= @booking.total_price %>.00</p>
+  </div>
+</div>
+<h2>Choose a Status to Update:</h2>
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :status, as: :radio_buttons, collection: Booking.statuses.keys %>
+  <%= f.submit %>
+<% end %>

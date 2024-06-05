@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_ute, only: %i[new create update]
+  before_action :set_ute, only: %i[new create]
 
   def new
     @booking = Booking.new
@@ -18,10 +18,14 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking = Booking.find(params[:id])
+    @ute = Ute.find(@booking.ute_id)
+    @user = User.find(@booking.user_id)
+    
   end
 
   def update
-    @booking.ute = @ute
+    @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
       redirect_to root_path
     else

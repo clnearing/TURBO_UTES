@@ -3,6 +3,7 @@
 <h3>$<%= @ute.price %>/day <%= @ute.location %></h3>
 <p style="width:400px"><%= @ute.details %></p>
 <img src="<%= @ute.image_url %>" style="width:400px">
+
 <h2>Create A Booking</h2>
 <div data-controller="booking">
   <%= simple_form_for @booking, url: ute_bookings_path(@ute) do |f| %>

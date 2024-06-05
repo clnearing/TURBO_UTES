@@ -1,46 +1,24 @@
-<h2>Update This Booking</h2>
-<div>
-  <h3><b><%= @ute.year %> <%= @ute.model  %></b></h3>
-  <h4>$<%= @ute.price %>/day <%= @ute.location %></h4>
-  <p style="width:300px"><%= @ute.details %></p>
-  <img src="<%= @ute.image_url %>" style="width:300px">
+<h2>**Update This Booking**</h2>
+<div class="d-flex">
+  <div class="p-3">
+    <h3><b><%= @ute.year %> <%= @ute.model  %></b></h3>
+    <h4>$<%= @ute.price %>/day <%= @ute.location %></h4>
+    <p style="width:300px"><%= @ute.details %></p>
+    <img src="<%= @ute.image_url %>" style="width:300px">
+  </div>
+  <div class="p-3">
+    <h3>Booking Request From:</h3>
+    <p><%= @user.first_name %> <%= @user.last_name %></p>
+    <h4>Start Date:</h4>
+    <p><%= @booking.start_date %></p>
+    <h4>End Date:</h4>
+    <p><%= @booking.end_date %></p>
+    <h4>Total Price:</h4>
+    <p>$<%= @booking.total_price %>.00</p>
+  </div>
 </div>
-<div>
-  <h3>Booking Request From:</h3>
-  <p><%= @user.first_name %> <%= @user.last_name %></p>
-  <h4>Start Date:</h4>
-  <p><%= @booking.start_date %></p>
-  <h4>End Date:</h4>
-  <p><%= @booking.end_date %></p>
-  <h4>Total Price:</h4>
-  <p><%= @booking.total_price %></p>
-</div>
-<div data-controller="status" class="mt-3">
-  <fieldset data-status-target="radio-choice">
-  <legend>Choose the status of this booking:</legend>
-
-  <div>
-    <input type="radio" id="pending" name="status" value=0 checked />
-    <label for="pending">Pending</label>
-  </div>
-
-  <div>
-    <input type="radio" id="denied" name="status" value=1 />
-    <label for="denied">Denied</label>
-  </div>
-
-  <div>
-    <input type="radio" id="confirmed" name="status" value=2 />
-    <label for="confirmed">Confirmed</label>
-  </div>
-
-  <div>
-    <input type="radio" id="completed" name="status" value=3 />
-    <label for="completed">Completed</label>
-  </div>
-
-  <div>
-    <button type="submit">Save Changes</button>
-  </div>
-</fieldset>
-</div>
+<h2>Choose a Status to Update:</h2>
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :status, as: :radio_buttons, collection: Booking.statuses.keys %>
+  <%= f.submit %>
+<% end %>

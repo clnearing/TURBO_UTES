@@ -2,7 +2,7 @@
 <h3>$<%= @ute.price %>/day <%= @ute.location %></h3>
 <p style="width:400px"><%= @ute.details %></p>
 <img src="<%= @ute.image_url %>" style="width:400px">
-<%= link_to "Book Now!", new_ute_booking_path(@ute) %>
+
 
 <h2>Create A Booking</h2>
 <%= simple_form_for @booking, url: ute_bookings_path(@ute) do |f| %>

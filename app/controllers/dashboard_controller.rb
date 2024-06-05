@@ -8,16 +8,14 @@ class DashboardController < ApplicationController
     @my_utes = Ute.where(user_id: current_user.id)
 
     # my_utes_bookings - bookings that are made on the utes I created
-    # @my_utes_bookings = Booking.where(ute_id: @my_utes ) # maybe?
-    @my_utes_bookings = Booking.all
+    @my_utes_bookings = Booking.where(ute_id: @my_utes ) # maybe?
+
+    @bookings = Booking.all
+    @bookings_made_by_me= @bookings.where(user_id: current_user.id)
 
     # @bookings = Booking.all
     # ute_ids = @bookings.pluck(:ute_id)
     # @my_utes_bookings = Booking.where(ute_id: ute_ids)
-
-
-    # bookings_made_by_me - bookings that are created by me
-      @bookings_made_by_me = Booking.where(user: current_user.id)
 
   end
 

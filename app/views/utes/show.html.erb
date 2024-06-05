@@ -1,6 +1,6 @@
 <div class="btn btn-link" style="border: solid 1px"><%=link_to "Back", utes_path%></div>
 <h2><b><%= @ute.year %> <%= @ute.model  %></b></h2>
-<h3>$<%= @ute.price %>/day <%= @ute.location %></h3>
+<h3 class="price" id="<%= @ute.price %>">$<%= @ute.price %>/day <%= @ute.location %></h3>
 <p style="width:400px"><%= @ute.details %></p>
 <img src="<%= @ute.image_url %>" style="width:400px">
 
@@ -15,9 +15,9 @@
   <button data-action="click->booking#fire" class="btn btn-outline-primary">
     Calculate Total Price
   </button>
-
-  <div data-booking-target="totalPrice">
-    <p>Total Price: $$$<p>
+  <br>
+  <div>
+    <p id="total-price">Total Price: $$$<p>
   </div>
 
 </div>

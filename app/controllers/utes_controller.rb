@@ -20,6 +20,9 @@ class UtesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+    @booking.ute_id = @ute.id
+
   end
 
   def edit

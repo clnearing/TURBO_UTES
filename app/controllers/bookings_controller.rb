@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.ute = @ute
+    @booking.user_id = 1
 
     if @booking.save
       redirect_to root_path

@@ -1,3 +1,41 @@
 <h1>Your Dashboard</h1>
+  <div class="btn btn-link" style="border: solid 1px"><%= link_to "Home", utes_path %></div>
 
-<%= @my_utes %>
+<div class="container">
+  <div class="container" style="padding-top: 50px">
+    <h2>My Fabulous Utes</h2>
+    <div>
+      <% @my_utes.each do |ute| %>
+        <%# <% if ute.availability? %> %>
+          <div style="width:200px">
+            <img src="<%= ute.image_url %>" style="width:100%">
+            <div>
+              <h3>$<%= ute.price %>/day <%= ute.location %></h3>
+              <h4><b><%= ute.year %> <%= ute.model  %></b></h4>
+            </div>
+          </div>
+        <%# <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top: 50px">
+    <h2>My Utes Bookings</h2>
+    <p>** My utes bookings will appear here **</p>
+     <% @my_utes_bookings.each do |booking| %>
+          <div style="width:200px">
+            <img src="<%= booking.ute.image_url %>" style="width:100%">
+            <div>
+              <h4><b><%= booking.ute.year %> <%= booking.ute.model %></b></h4>
+              <h3>Total : $<%= booking.total_price %></h3>
+              <h4><b><%= booking.status %></b></h4>
+            </div>
+          </div>
+      <% end %>
+  </div>
+
+  <div class="container" style="padding-top: 50px; padding-bottom: 50px">
+    <h2>Bookings Made By Me </h2>
+    <p>** The bookings I've made will appear here **</p>
+  </div>
+</div>

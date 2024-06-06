@@ -51,18 +51,18 @@
 
   <div class="dashboard-tab">
     <div class="card-container">
-    <h2>Bookings Made By Me </h2>
-    <p>** See the bookings you've made on other utes **</p>
-          <% @bookings_made_by_me.each do |booking| %>
-          <div class="card" style="padding:20px">
-          <div style="width:200px">
-              <img src="<%= booking.ute.image_url %>" style="width:100%">
-          </div>
-            <h4><b><%=booking.ute.year %> <%= booking.ute.model %></b></h4>
-            <h3>Total: $<%= booking.total_price %>.00</h3>
-            <h4><b><%=booking.status %></b></h4>
-          <% end %>
+      <h2>Bookings Made By Me </h2>
+      <p>** See the bookings you've made on other utes **</p>
+            <% @bookings_made_by_me.each do |booking| %>
+            <div class="card" style="padding:20px">
+            <div style="width:200px">
+                <img src="<%= booking.ute.image_url %>" style="width:100%">
+            </div>
+              <h4><b><%=booking.ute.year %> <%= booking.ute.model %></b></h4>
+              <h3>Total: $<%= booking.total_price %>.00</h3>
+              <h4><b><%=booking.status %></b></h4>
+            <% end %>
+        </div>
       </div>
-    </div>
   </div>
 </div>

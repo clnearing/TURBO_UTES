@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
 
     if @booking.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new, status: unprocessable_entity
     end
@@ -24,13 +24,13 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @ute = Ute.find(@booking.ute_id)
     @user = User.find(@booking.user_id)
-    
+
   end
 
   def update
     @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :edit, status: :unprocessable_entity
     end

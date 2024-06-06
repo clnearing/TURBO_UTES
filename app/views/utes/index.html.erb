@@ -17,8 +17,8 @@
       <div style="width:200px">
         <img src="<%= ute.image_url %>" style="width:100%">
         <div>
-          <h3>$<%= ute.price %>/day <%= ute.location %></h3>
           <h4><b><%= ute.year %> <%= ute.model  %></b></h4>
+          <h3>$<%= ute.price %>.00/day <%= ute.location %></h3>
           <%= link_to "Booking Info", ute_path(ute)%>
         </div>
       </div>

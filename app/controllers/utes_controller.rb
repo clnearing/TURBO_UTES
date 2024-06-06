@@ -4,9 +4,15 @@ class UtesController < ApplicationController
 
   def index
     @utes = Ute.all
-      if params[:query].present?
-          @utes = @utes.search_by_model_year_and_location(params[:query])
-      end
+    if params[:query].present?
+      @utes = @utes.search_by_model_year_and_location(params[:query])
+    end
+    @markers = @utes.geocoded.map do |ute|
+      {
+        lat: ute.latitude,
+        lng: ute.longitude
+      }
+    end
   end
 
   def new
@@ -48,7 +54,7 @@ class UtesController < ApplicationController
   private
 
   def ute_params
-    params.require(:ute).permit(:model, :year, :location, :details, :image_url, :availability, :price)
+    params.require(:ute).permit(:model, :year, :location, :details, :image_url, :availability, :price, :latitude, :longitude )
   end
 
   def set_ute

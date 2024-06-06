@@ -1,6 +1,3 @@
-
-
-<%# navbar with links to home, login/logout, create new user, user dashboard,  %>
 <nav class="navbar-lewagon">
   <h2>TURBO UTES</h2>
   <div class="nav-links">
@@ -14,16 +11,31 @@
 </nav>
 
 <div class="card-container">
-  <% @utes.each do |ute| %>
-    <% if ute.availability? %>
-      <div class="card">
+    <% if @utes.any? %>
+      <% @utes.each do |ute| %>
+        <div class="card">
           <img src="<%= ute.image_url %>">
           <div class="card-content">
             <h4><%= ute.year %> <%= ute.model %></h4>
             <h3>$<%= ute.price %>.00/day <%= ute.location %></h3>
             <%= link_to "Booking Info", ute_path(ute)%>
           </div>
-      </div>
-    <% end %>
-  <% end %>
+        </div>
+       <% end %>
+     <% else %>
+        <em>Sorry, no utes found.</em>
+     <% end %>
+</div>
+
+<div class="row justify-content-start">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: utes_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Search for the ute of your dreams"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
 </div>

@@ -4,6 +4,9 @@ class UtesController < ApplicationController
 
   def index
     @utes = Ute.all
+      if params[:query].present?
+          @utes = @utes.search_by_model_year_and_location(params[:query])
+      end
   end
 
   def new

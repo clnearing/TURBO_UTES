@@ -29,18 +29,77 @@ steve = User.create(
 
 steve.save
 
-10.times {
-  ute = Ute.create(
-  model: Faker::Vehicle.make,
-  year: Faker::Vehicle.year,
-  location: Faker::Address.street_name + ', ' + Faker::Address.city,
-  details: Faker::Vehicle.transmission + ', ' + Faker::Vehicle.drive_type,
-  image_url: Faker::LoremFlickr.image(search_terms: ['pickup']) + "?random=#{rand(10000)}",
+ute1 = Ute.create(
+  model: "Toyota Hilux",
+  year: 2023,
+  location: "Melbourne, Australia",
+  details: "Manual AWD",
+  image_url: "https://cdn.motor1.com/images/mgl/AkgyVW/s1/toyota-hilux-bev-pickup.jpg",
   availability: true,
-  price: rand(20..500),
+  price: 340,
   user_id: 1
-  )
-  ute.save!
-}
+)
+
+ute2 = Ute.create(
+  model: "Holden Ute SS VE Auto",
+  year: 2010,
+  location: "Ho Chi Minh Cty, Vietnam",
+  details: "Biggest Turbo Ever",
+  image_url: "https://findmecars.com.au/wp-content/uploads/2017/08/untitled-8.jpg",
+  availability: true,
+  price: 777,
+  user_id: 1
+)
+
+ute3 = Ute.create(
+  model: "Ram 1500 DT",
+  year: 2019,
+  location: "Farm & Co, 529 Cudgen Rd, Cudgen NSW 2487",
+  details: "5000 HP Absolute Beast",
+  image_url: "https://res.cloudinary.com/driveau/images/v1/cms/uploads/jrmly9aladh5yhlmbo6w/jrmly9aladh5yhlmbo6w.jpg",
+  availability: true,
+  price: 420,
+  user_id: 1
+)
+
+ute4 = Ute.create(
+  model: "Toyota Land Cruiser",
+  year: 2021,
+  location: "Le Wagon, Richmond, Melbourne",
+  details: "V8 TURBO Diesel Dual Cab",
+  image_url: "https://www.4-wheeling-in-western-australia.com/images/Sunset-Cruiser.jpg",
+  availability: true,
+  price: 600,
+  user_id: 1
+)
+
+ute5 = Ute.create(
+  model: "Cyber Truck",
+  year: 2023,
+  location: "Austin, Texas, United States",
+  details: "Elon Musk firing machine gun at Cyber Truck",
+  image_url: "https://s1.cdn.autoevolution.com/images/news/elon-musk-suggesting-the-cybertruck-is-bulletproof-is-reckless-and-nothing-new-223201_1.jpg",
+  availability: true,
+  price: 9999,
+  user_id: 1
+)
+
+ute6 = Ute.create(
+  model: "Ford Police Ute",
+  year: 2010,
+  location: "Bondi Beach, Sydney, Australia",
+  details: "Police ute that tries to catch speeding turbo utes",
+  image_url: "https://lexipol.brightspotcdn.com/dims4/default/5611e2a/2147483647/strip/true/crop/4279x2409+0+232/resize/1000x563!/quality/90/?url=https%3A%2F%2Fk1-prod-lexipol.s3.us-east-2.amazonaws.com%2Fbrightspot%2F68%2F6f%2F6b242cbb4f25a043236bd7024dc4%2Fford-pro-f150-police-responder-61620.jpg",
+  availability: true,
+  price: 50,
+  user_id: 1
+)
+
+ute1.save!
+ute2.save!
+ute3.save!
+ute4.save!
+ute5.save!
+ute6.save!
 
 puts "users and utes created!"

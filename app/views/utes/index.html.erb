@@ -2,40 +2,40 @@
   <h2>TURBO UTES</h2>
   <div class="nav-links">
     <%= link_to 'Home', '/' %>
-    <%= link_to 'Log In', '/users/sign_in' %>
-    <%= link_to 'Sign Up', '/users/sign_up' %>
     <%= link_to 'Dashboard', '/dashboard' %>
-    <%# <%= link_to 'Log Out', '/users/sign_out' %>
+    <%= link_to 'Sign Up', '/users/sign_up' %>
+    <%= link_to 'Log In', '/users/sign_in' %>
     <%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete } %>
   </div>
 </nav>
 
-<div class="card-container">
-    <% if @utes.any? %>
-      <% @utes.each do |ute| %>
-        <div class="card">
-          <img src="<%= ute.image_url %>">
-          <div class="card-content">
-            <h4><%= ute.year %> <%= ute.model %></h4>
-            <h3>$<%= ute.price %>.00/day <%= ute.location %></h3>
-            <%= link_to "Booking Info", ute_path(ute)%>
-          </div>
-        </div>
-       <% end %>
-     <% else %>
-        <em>Sorry, no utes found.</em>
-     <% end %>
+<div class="search-container">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: utes_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search for the ute of your dreams"
+      %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
-<div class="row justify-content-start">
-    <div class="col-sm-8 my-3">
-      <%= form_with url: utes_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Search for the ute of your dreams"
-          %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+<div class="card-container">
+  <% if @utes.any? %>
+    <% @utes.each do |ute| %>
+      <div class="card">
+        <img src="<%= ute.image_url %>">
+        <div class="card-content">
+          <h4><%= ute.year %> <%= ute.model %></h4>
+          <h5>$<%= ute.price %> / day</h5>
+          <h5><%= ute.location %></h5>
+          <%= link_to "Booking Info", ute_path(ute), class: "btn btn-outline-primary" %>
+        </div>
+      </div>
       <% end %>
-    </div>
+  <% else %>
+    <em>Sorry, no utes found.</em>
+  <% end %>
 </div>

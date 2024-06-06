@@ -1,6 +1,29 @@
 .navbar-lewagon {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
   background: white;
+}
+
+.navbar-lewagon h2 {
+  margin-left: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  margin-right: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
+.nav-links a:hover {
+  color: rgb(160, 160, 160);
+  transition: 0.3s;
 }
 
 .navbar-lewagon .navbar-collapse {

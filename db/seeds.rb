@@ -42,7 +42,6 @@ ute1 = Ute.create(
 
 ute2 = Ute.create(
   model: "Holden Ute SS VE Auto",
-  year: 2010,
   location: "Perth, Australia",
   details: "AMAS Rock and Rescue",
   image_url: "https://i0.wp.com/lamleygroup.com/wp-content/uploads/2012/06/img_6333.jpg",

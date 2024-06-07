@@ -1,3 +1,11 @@
+<nav class="navbar-lewagon">
+  <h2>Bookings</h2>
+  <div class="nav-links">
+    <%= link_to 'Home', '/' %>
+    <%= link_to 'Dashboard', '/dashboard' %>
+  </div>
+</nav>
+
 <div class="btn btn-link" style="border: solid 1px"><%=link_to "Back", utes_path%></div>
 <h2><b><%= @ute.year %> <%= @ute.model  %></b></h2>
 <h3 class="price" id="<%= @ute.price %>">$<%= @ute.price %>/day <%= @ute.location %></h3>

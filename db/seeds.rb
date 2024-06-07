@@ -44,7 +44,7 @@ ute2 = Ute.create(
   model: "Holden Ute SS VE Auto",
   year: 2010,
   location: "Ho Chi Minh Cty, Vietnam",
-  details: "Biggest Turbo Ever",
+  details: "Biggest Turbo Ever - Also know as the Green Machine",
   image_url: "https://findmecars.com.au/wp-content/uploads/2017/08/untitled-8.jpg",
   availability: true,
   price: 777,

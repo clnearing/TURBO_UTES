@@ -6,26 +6,33 @@
   </div>
 </nav>
 
-<div class="btn btn-link" style="border: solid 1px"><%=link_to "Back", utes_path%></div>
+<div class="d-flex justify-content-center" style="margin-top: 40px;">
+<div class="card">
+<div class="card-content">
 <h2><b><%= @ute.year %> <%= @ute.model  %></b></h2>
 <h3 class="price" id="<%= @ute.price %>">$<%= @ute.price %>/day <%= @ute.location %></h3>
-<p style="width:400px"><%= @ute.details %></p>
-<img src="<%= @ute.image_url %>" style="width:400px">
+<p>"<em><%= @ute.details %></em>"</p>
+<img src="<%= @ute.image_url %>" style="width:90%"></div>
+</div>
 
-<h2>Create A Booking</h2>
-<div data-controller="booking">
-  <%= simple_form_for @booking, url: ute_bookings_path(@ute) do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.button :submit, class:"btn btn-primary"%>
-  <% end %>
+<div class="card">
+  <div class="card-content">
+  <h2>Create A Booking</h2>
+  <div data-controller="booking">
+    <%= simple_form_for @booking, url: ute_bookings_path(@ute) do |f| %>
+    <div style="width:500px">
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+    </div>
+      <%= f.button :submit, class:"btn btn-primary"%>
+    <% end %>
+      <br>
 
-  <button data-action="click->booking#fire" class="btn btn-outline-primary">
-    Calculate Total Price
-  </button>
-  <br>
-  <div>
-    <p id="total-price">Total Price: $$$<p>
+    <button data-action="click->booking#fire" class="btn btn-outline-primary">
+      Calculate Total Price
+    </button>
+    <br>
+      <p id="total-price">Total Price: $$$<p>
   </div>
-
+  </div>
 </div>

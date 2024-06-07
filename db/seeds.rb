@@ -94,12 +94,4 @@ ute6 = Ute.create(
   user_id: 1
 )
 
-ute1.save!
-ute2.save!
-ute3.save!
-ute4.save!
-ute5.save!
-ute6.save!
-
-
 puts "users and utes created!"

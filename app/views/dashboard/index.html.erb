@@ -66,6 +66,7 @@
               <h4><b><%=booking.ute.year %> <%= booking.ute.model %></b></h4>
               <h5>Total: $<%= booking.total_price %>.00</h3>
               <h5 class="btn btn-outline-dark"><b><%=booking.status %></b></h4>
+              <%= link_to "Add Review", new_ute_booking_review_path(booking, booking.ute) %>
             </div>
             <% end %>
         </div>

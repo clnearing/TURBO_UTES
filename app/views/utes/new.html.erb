@@ -1,5 +1,17 @@
-<div class="container p-1">
-  <h2>Add A New Ute</h2>
-  <div class="btn btn-link" style="border: solid 1px"><%=link_to "Back", dashboard_path%></div>
-  <%= render "form", ute: @ute %>
+<nav class="navbar-lewagon">
+  <h2>Add New Ute</h2>
+  <div class="nav-links">
+    <%= link_to 'Home', '/' %>
+    <%= link_to 'Dashboard', '/dashboard' %>
+  </div>
+</nav>
+
+<div class="d-flex justify-content-center">
+    <div class="card" style=" margin-top:40px; background-color:white;">
+      <div style=" padding: 40px;">
+      <h2>Enter your ute details</h2>
+      <br>
+        <%= render "form", ute: @ute %>
+        </div>
+  </div>
 </div>

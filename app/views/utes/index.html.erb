@@ -17,7 +17,7 @@
         class: "form-control",
         placeholder: "Search for the ute of your dreams"
       %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary rounded" %>
     <% end %>
   </div>
 </div>
@@ -28,16 +28,17 @@
       <div class="card">
         <img src="<%= ute.image_url %>">
         <div class="card-content">
-          <h4><%= ute.year %> <%= ute.model %></h4>
-          <h5>$<%= ute.price %> / day</h5>
+          <h4><strong><%= ute.year %> <%= ute.model %></strong></h4>
+          <h5><strong>$<%= ute.price %></strong> day</h5>
           <h5><%= ute.location %></h5>
-          <%= link_to "Booking Info", ute_path(ute), class: "btn btn-outline-primary" %>
+          <%= link_to "Booking Info", ute_path(ute), class: "btn btn-outline-primary rounded" %>
         </div>
       </div>
       <% end %>
   <% else %>
     <em>Sorry, no utes found.</em>
 <% end %>
+
 
 </div>
 

@@ -1,21 +1,33 @@
-<h2>**Update This Booking**</h2>
-<div class="d-flex">
-  <div class="p-3">
-    <h3><b><%= @ute.year %> <%= @ute.model  %></b></h3>
-    <h4>$<%= @ute.price %>.00/day <%= @ute.location %></h4>
-    <p style="width:300px"><%= @ute.details %></p>
-    <img src="<%= @ute.image_url %>" style="width:300px">
+<nav class="navbar-lewagon">
+  <h2>Update This Booking</h2>
+</nav>
+
+<div class="card-container">
+  <div class="card">
+    <img src="<%= @ute.image_url %>">
+    <div class="card-content">
+      <h4><%= @ute.year %> <%= @ute.model  %></h4>
+      <h5>$<%= @ute.price %>.00/day</h5>
+      <h5><%= @ute.location %></h5>
+    </div>
   </div>
-  <div class="p-3">
-    <h3>Booking Request From:</h3>
-    <p><%= @user.first_name %> <%= @user.last_name %></p>
-    <h4>Start Date: <%= @booking.start_date %></h4>
-    <h4>End Date: <%= @booking.end_date %></h4>
-    <h4>Total Price: $<%= @booking.total_price %>.00</h4>
+
+  <div class="card">
+    <div class="px-5">
+      <h2 class="text-center">Booking Request</h2>
+      <h4 class="text-capitalize">Name: <%= @user.first_name %> <%= @user.last_name %></h4>
+      <h4>Start Date: <%= @booking.start_date %></h4>
+      <h4>End Date: <%= @booking.end_date %></h4>
+      <h4>Total Price: $<%= @booking.total_price %>.00</h4>
+    </div>
   </div>
 </div>
-<h2>Choose a Status to Update:</h2>
-<%= simple_form_for @booking do |f| %>
-  <%= f.input :status, as: :radio_buttons, collection: Booking.statuses.keys %>
-  <%= f.submit %>
-<% end %>
+
+<div>
+  <h2 class="text-center">Choose a Status to Update:</h2>
+  <h4 class="status-form"><%= simple_form_for @booking do |f| %>
+        <%= f.input :status, as: :radio_buttons, collection: Booking.statuses.keys %>
+        <%= f.submit %>
+      <% end %>
+  </h4>
+</div>

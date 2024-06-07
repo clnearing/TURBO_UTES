@@ -1,6 +1,7 @@
 class Ute < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
+  has_many :reviews, through: :bookings
 
   validates :model, :year, :location, :details, :image_url, :price, presence: true
   validates :details, length: { maximum: 500 }

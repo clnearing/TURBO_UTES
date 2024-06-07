@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: "utes#index"
 
   resources :utes do
-    resources :bookings, only: :create
+    resources :bookings, only: [:create] do
+      resources :reviews, only: [:new, :create]
+    end
   end
 
   resources :bookings, only: [:edit, :update]

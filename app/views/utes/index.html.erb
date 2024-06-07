@@ -30,7 +30,19 @@
         <img src="<%= ute.image_url %>">
         <div class="card-content">
           <h4><strong><%= ute.year %> <%= ute.model %></strong></h4>
-          <h5> from <strong>$<%= ute.price %></strong> / day</h5>
+
+          <% if ute.bookings == [] %>
+            <h5><strong>$<%= ute.price %></strong> day</h5>
+          <% else %>
+            <% ute.bookings.each do |booking| %>
+              <% if booking.reviews != [] %>
+                <h5><strong>$<%= ute.price %></strong> day ⭐<%= ute.bookings[0].reviews[0].rating %></h5>
+              <% else %>
+                <h5><strong>$<%= ute.price %></strong> day</h5>
+              <% end %>
+            <% end %>
+          <% end %>
+
           <h5><%= ute.location %></h5>
           <%= link_to "Booking Info", ute_path(ute), class: "btn btn-outline-primary rounded" %>
         </div>
@@ -43,7 +55,7 @@
 
 </div>
 
-<div style="width: 100%; height: 600px;"
+<div style="margin: 100px; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

@@ -29,7 +29,6 @@
       </div>
     </div>
 
-
   <div class="dashboard-tab">
     <div class="card-container">
       <h2>My Utes Bookings</h2>
@@ -46,8 +45,6 @@
         <% end %>
       </div>
     </div>
-
-
 
   <div class="dashboard-tab">
     <div class="card-container">
@@ -68,7 +65,11 @@
                 else
                   ''
                 end %>">
-                  <%=booking.status%></div>
+                  <%=booking.status%>
+              </div>
+              <div>
+                <%= link_to "Add Review", new_ute_booking_review_path(booking, booking.ute) %>
+              </div>
             </div>
             <% end %>
         </div>

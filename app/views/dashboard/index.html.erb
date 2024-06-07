@@ -76,11 +76,10 @@
                   ''
                 end %>">
               <b><%=booking.status %></b>
-              <%= link_to "Add Review", new_ute_booking_review_path(booking, booking.ute) %>
-
             </div>
-            <% end %>
+      <%= link_to "Add Review", new_ute_booking_review_path(booking, booking.ute), class: "btn btn-secondary" %>
         </div>
       </div>
+    <% end %>
   </div>
 </div>

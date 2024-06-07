@@ -98,4 +98,5 @@ ute6 = Ute.create!(
   user: User.first
 )
 
+
 puts "users and utes created!"

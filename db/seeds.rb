@@ -98,4 +98,15 @@ ute6 = Ute.create!(
   user: User.first
 )
 
+ute6 = Ute.create!(
+  model: "Over-Modded Nissan Ute",
+  year: 2013,
+  location: "Auckland, New Zealand",
+  details: "Yooo this ute is sick as bro. Mean as.",
+  image_url: "https://www.sscustomsqld.com.au/cdn/shop/files/rn-image_picker_lib_temp_1024d631-4778-4489-8307-04e0ea9d15e2.jpg?v=1700813222",
+  availability: true,
+  price: 420,
+  user: User.first
+)
+
 puts "users and utes created!"

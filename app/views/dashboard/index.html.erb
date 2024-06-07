@@ -65,6 +65,7 @@
               <div class="card-content">
               <h4><b><%=booking.ute.year %> <%= booking.ute.model %></b></h4>
               <h5>Total: $<%= booking.total_price %>.00</h3>
+
                 <div class="<%= if booking.status == "pending"
                   'btn btn-outline-primary'
                 elsif booking.status == "accepted"
@@ -75,6 +76,8 @@
                   ''
                 end %>">
               <b><%=booking.status %></b>
+              <%= link_to "Add Review", new_ute_booking_review_path(booking, booking.ute) %>
+
             </div>
             <% end %>
         </div>

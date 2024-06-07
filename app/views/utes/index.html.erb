@@ -30,19 +30,12 @@
         <img src="<%= ute.image_url %>">
         <div class="card-content">
           <h4><strong><%= ute.year %> <%= ute.model %></strong></h4>
-
-          <% if ute.bookings == [] %>
             <h5><strong>$<%= ute.price %></strong> day</h5>
-          <% else %>
             <% ute.bookings.each do |booking| %>
               <% if booking.reviews != [] %>
-                <h5><strong>$<%= ute.price %></strong> day ⭐<%= ute.bookings[0].reviews[0].rating %></h5>
-              <% else %>
-                <h5><strong>$<%= ute.price %></strong> day</h5>
+                <h5>⭐<%= ute.bookings[0].reviews[0].rating %></h5>
               <% end %>
             <% end %>
-          <% end %>
-
           <h5><%= ute.location %></h5>
           <%= link_to "Booking Info", ute_path(ute), class: "btn btn-outline-primary rounded" %>
         </div>
@@ -50,9 +43,7 @@
       <% end %>
   <% else %>
     <em>Sorry, no utes found.</em>
-<% end %>
-
-
+  <% end %>
 </div>
 
 <div style="margin: 100px; height: 600px;"

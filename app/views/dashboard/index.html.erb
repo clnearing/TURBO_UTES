@@ -7,60 +7,60 @@
   </div>
 </nav>
 
-<div style="display: flex; justify-content: center;" >
+<div class="dashboard">
   <div class="dashboard-tab">
     <div class="card-container">
-    <h2>My Fabulous Utes</h2>
-    <p>** See all the utes you own **</p>
-      <% @my_utes.each do |ute| %>
-        <div class="card" style="padding:20px">
-          <div style="width:200px">
-            <img src="<%= ute.image_url %>" style="width:100%">
-            <div>
-              <h4><b><%= ute.year %> <%= ute.model  %></b></h4>
-              <h3>$<%= ute.price %>.00/day <%= ute.location %></h3>
-            </div>
-          </div>
-          <div style="justify-content:center">
-            <div class="badge rounded-pill bg-primary fs-6"><%= link_to "Edit", edit_ute_path(ute) %></div>
-            <div class="badge rounded-pill bg-primary fs-6"><%= link_to "Delete", ute_path(ute), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
-          </div>
-      <% end %>
+       <h2>My Fabulous Utes</h2>
+        <p>** See all the utes you own **</p>
+          <% @my_utes.each do |ute| %>
+            <div class="card">
+                <img src="<%= ute.image_url %>" style="width:100%">
+                <div class="card-content">
+                  <h4><b><%= ute.year %> <%= ute.model %></b></h4>
+                  <h5>$<%= ute.price %>.00/day </h5>
+                  <h5><%= ute.location %></h5>
+                <div class="display: flex;">
+                <%= link_to "Edit", edit_ute_path(ute), class: "btn btn-outline-primary"  %>
+                <%= link_to "Delete", ute_path(ute), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-primary" %>
+                </div>
+              </div>
+              </div>
+          <% end %>
+      </div>
     </div>
-    </div>
-  </div>
+
 
   <div class="dashboard-tab">
     <div class="card-container">
-    <h2>My Utes Bookings</h2>
-    <p>** Bookings made on your utes**</p>
-    <% @my_utes_bookings.each do |booking|%>
-    <div class="card" style="padding:20px">
-      <div style="width:200px">
-        <img src="<%= booking.ute.image_url %>" style="width:100%">
-      </div>
-        <h4><b><%=booking.ute.year %> <%= booking.ute.model %></b></h4>
-        <h3>Total: $<%= booking.total_price %>.00</h3>
-      <%# Edit button for our bookings (accept/decline/complete) %>
-      <%# <%= link_to "Edit", to: edit_booking_path %>
-      <%=link_to "Edit", edit_booking_path(booking)%>
+      <h2>My Utes Bookings</h2>
+      <p>** Bookings made on your utes**</p>
+        <% @my_utes_bookings.each do |booking|%>
+          <div class="card">
+                <img src="<%= booking.ute.image_url %>">
+             <div class="card-content">
+                <h4><b><%=booking.ute.year %> <%= booking.ute.model %></b></h4>
+                <h5>Total: $<%= booking.total_price %>.00</h5>
+                <%=link_to "Edit", edit_booking_path(booking), class: "btn btn-outline-primary" %>
+              </div>
+            </div>
         <% end %>
-        </div>
+      </div>
     </div>
-  </div>
+
+
 
   <div class="dashboard-tab">
     <div class="card-container">
       <h2>Bookings Made By Me </h2>
       <p>** See the bookings you've made on other utes **</p>
             <% @bookings_made_by_me.each do |booking| %>
-            <div class="card" style="padding:20px">
-            <div style="width:200px">
-                <img src="<%= booking.ute.image_url %>" style="width:100%">
-            </div>
+            <div class="card">
+                <img src="<%= booking.ute.image_url %>">
+              <div class="card-content">
               <h4><b><%=booking.ute.year %> <%= booking.ute.model %></b></h4>
-              <h3>Total: $<%= booking.total_price %>.00</h3>
-              <h4><b><%=booking.status %></b></h4>
+              <h5>Total: $<%= booking.total_price %>.00</h3>
+              <h5 class="btn btn-outline-dark"><b><%=booking.status %></b></h4>
+            </div>
             <% end %>
         </div>
       </div>
